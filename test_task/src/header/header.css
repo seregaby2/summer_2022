@@ -1,0 +1,64 @@
+@font-face {
+    font-family: 'Inter'; 
+	src: url('../assets/fonts/Inter-Regular.ttf');
+}
+
+.header-wrapper {
+    width: 100%;
+    height: 72px;
+    background-color: #0064EB;
+}
+
+.header-content {
+    box-sizing: border-box;
+    max-width: 604px;
+    width: 100%;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    padding-left: 41px;
+    justify-content: space-between;
+}
+
+.icon-header {
+    width: 41px;
+    height: 40px; 
+    background-image: url("../assets/image/header/Vector.png");
+    background-repeat: no-repeat;
+}
+
+.wrapper-search {
+    position: relative;
+    max-width: 500px;
+    width: 100%;
+    height: 40px;
+}
+
+.icon-search {
+    background-image: url("../assets/image/header/search.jpg");
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    top: 13px;
+    left: 19px;
+    z-index: 2;
+    display: block;
+    text-align: center;
+    pointer-events: none;
+}
+
+.input-search {
+    max-width: 456px;
+    width: 100%;
+    height: 40px;
+    background: #FFFFFF;
+    border-radius: 6px;
+    border: 0px;
+    padding-left: 44px;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.01em;
+}
