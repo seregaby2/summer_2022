@@ -1,9 +1,10 @@
 import React from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
+import { fetchUsers } from '../store/reducers/fetchUser';
 import { userSlice } from '../store/reducers/userSlice';
 import { IconGithub } from './components/iconGithub';
 import { Input } from './components/input';
-import './header.css';
+import './style/header.css';
 
 export function Header() {
   const { searchValue } = useAppSelector((state) => state.reducerRequestApi);
@@ -12,6 +13,12 @@ export function Header() {
 
   const handleChangeInput = (e: React.FormEvent<HTMLInputElement>) => {
     dispatch(getSearchValue(e.currentTarget.value));
+  };
+
+  const handleClickEnter = (e: React.KeyboardEvent) => {
+    if (e.code === 'Enter') {
+      dispatch(fetchUsers(searchValue));
+    }
   };
 
   return (
@@ -26,6 +33,7 @@ export function Header() {
           value={searchValue}
           placeholder="Enter GitHub username"
           onChange={handleChangeInput}
+          onKeyDown={handleClickEnter}
         />
       </div>
     </div>

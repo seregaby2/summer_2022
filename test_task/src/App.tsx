@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Header } from './header/header';
-import { BeginPage } from './pages/beginPage/beginPage';
+import { MainPage } from './pages/mainPage/mainPage';
 import { NotFoundPage } from './pages/notFoundPage/notFoundPage';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-        <Route path="/" element={<BeginPage />} />
+        <Route path="/" element={<MainPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>

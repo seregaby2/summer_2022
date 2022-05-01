@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'Inter'; 
+	src: url('../../../assets/fonts/Inter-Regular.ttf');
+}
+
+.wrapper-start-search {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 210px;
+    height: 196px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon-start-search {
+    background-image: url('../../../assets/image/header/bigSearch.jpg');
+    background-repeat: no-repeat;
+    width: 64px;
+    height: 64px;
+}
+
+.text-start-search {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 140%;
+    text-align: center;
+    color: #808080;
+}

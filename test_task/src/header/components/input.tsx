@@ -8,6 +8,7 @@ interface MyProps {
   value: string;
   placeholder: string;
   onChange(e: React.FormEvent<HTMLInputElement>): void;
+  onKeyDown(e: React.KeyboardEvent): void;
 }
 
 export function Input(props: MyProps) {
@@ -20,6 +21,7 @@ export function Input(props: MyProps) {
         value={props.value}
         placeholder={props.placeholder}
         onChange={props.onChange}
+        onKeyDown={props.onKeyDown}
       />
     </div>
   );
