@@ -31,3 +31,9 @@
     text-align: center;
     color: #808080;
 }
+
+.wrapper-main {
+    width: 100%;
+    padding: 40px 56px 0px 56px;
+    box-sizing: border-box;
+}

@@ -1,0 +1,65 @@
+@font-face {
+    font-family: 'Inter'; 
+	src: url('../../../assets/fonts/Inter-Regular.ttf');
+}
+
+.left-side-main {
+    max-width: 292px;
+    width: 100%;
+}
+
+.avatar-main {
+    max-width: 280px;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.name-main {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 130%;
+    color: #000000;
+    text-transform: capitalize;
+    margin: 28px 0px 12px 0px;
+}
+
+.nick-main {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #0064EB;
+    text-decoration: none;
+}
+
+.wrapper-follow-main {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.followers-main, .following-main {
+    display: flex;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #000000;
+}
+
+.followers-main:before, .following-main:before {
+    content: '';
+    background-image: url('../../../assets/image/mainPage/icon_followers.svg');
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    margin-right: 8px;
+}
+
+.following-main:before {
+    background-image: url('../../../assets/image/mainPage/icon_following.svg');
+}

@@ -3,10 +3,12 @@ import { StateForApi, dataUser } from '../../interface/interface';
 
 const initialData: dataUser = {
   login: '',
+  name: null,
   id: 0,
   avatar_url: '',
-  url: '',
   html_url: '',
+  followers: 0,
+  following: 0,
 };
 const initialState: StateForApi = {
   data: initialData,
