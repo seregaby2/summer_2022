@@ -1,8 +1,10 @@
 export interface StateForApi {
-  data: dataUser;
+  dataUser: dataUser;
+  dataRepos: dataRepos[];
   searchValue: string;
   isLoading: boolean;
-  error: string;
+  errorUser: string;
+  errorRepos: string;
 }
 
 export interface dataUser {
@@ -13,4 +15,12 @@ export interface dataUser {
   html_url: string;
   followers: number;
   following: number;
+  public_repos: number;
+}
+
+export interface dataRepos {
+  name: string | null;
+  id: number;
+  description: string;
+  html_url: string;
 }

@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { StateForApi, dataUser } from '../../interface/interface';
+import { StateForApi, dataUser, dataRepos } from '../../interface/interface';
 
-const initialData: dataUser = {
+const initialDataUser: dataUser = {
   login: '',
   name: null,
   id: 0,
@@ -9,12 +9,16 @@ const initialData: dataUser = {
   html_url: '',
   followers: 0,
   following: 0,
+  public_repos: 0,
 };
+
 const initialState: StateForApi = {
-  data: initialData,
+  dataUser: initialDataUser,
+  dataRepos: [],
   searchValue: '',
   isLoading: false,
-  error: '',
+  errorUser: '',
+  errorRepos: '',
 };
 
 export const userSlice = createSlice({
@@ -26,12 +30,24 @@ export const userSlice = createSlice({
     },
     usersFetchingSuccess(state, action: PayloadAction<dataUser>) {
       state.isLoading = false;
-      state.error = '';
-      state.data = action.payload;
+      state.errorUser = '';
+      state.dataUser = action.payload;
     },
     usersFetchingError(state, action: PayloadAction<string>) {
       state.isLoading = true;
-      state.error = action.payload;
+      state.errorUser = action.payload;
+    },
+    reposFetching(state) {
+      state.isLoading = true;
+    },
+    reposFetchingSuccess(state, action: PayloadAction<dataRepos[]>) {
+      state.isLoading = false;
+      state.errorRepos = '';
+      state.dataRepos = action.payload;
+    },
+    reposFetchingError(state, action: PayloadAction<string>) {
+      state.isLoading = true;
+      state.errorRepos = action.payload;
     },
     getSearchValue(state, action: PayloadAction<string>) {
       state.searchValue = action.payload;

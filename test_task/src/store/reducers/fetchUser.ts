@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { dataUser } from '../../interface/interface';
+import { dataRepos, dataUser } from '../../interface/interface';
 import { AppDispatch } from '../store';
 import { userSlice } from './userSlice';
 
-export const fetchUsers = (searchValue: string) => async (dispatch: AppDispatch) => {
+export const fetchUser = (searchValue: string) => async (dispatch: AppDispatch) => {
   try {
     dispatch(userSlice.actions.usersFetching());
 
@@ -16,5 +16,24 @@ export const fetchUsers = (searchValue: string) => async (dispatch: AppDispatch)
     dispatch(userSlice.actions.usersFetchingSuccess(response.data));
   } catch (e) {
     if (e instanceof Error) dispatch(userSlice.actions.usersFetchingError(e.message));
+  }
+};
+
+export const fetchRepos = (searchValue: string) => async (dispatch: AppDispatch) => {
+  try {
+    dispatch(userSlice.actions.reposFetching());
+
+    const response = await axios.get<dataRepos[]>(
+      `https://api.github.com/users/${searchValue}/repos?per_page=4&page=1`,
+      {
+        method: 'GET',
+        headers: {
+          'content-type': 'application/json',
+        },
+      }
+    );
+    dispatch(userSlice.actions.reposFetchingSuccess(response.data));
+  } catch (e) {
+    if (e instanceof Error) dispatch(userSlice.actions.reposFetchingError(e.message));
   }
 };

@@ -1,0 +1,55 @@
+@font-face {
+    font-family: 'Inter'; 
+	src: url('../../../assets/fonts/Inter-Regular.ttf');
+}
+
+
+.right-side-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.title-repo-main {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 130%;
+    color: #000000;
+    margin-bottom: 5px;
+}
+
+.wrapper-repo-description {
+    width: 877px;
+    height: 112px;
+    background-color: #FFFFFF;
+    border-radius: 6px;
+    padding-left: 32px;
+    box-sizing: border-box;
+    margin-top: 24px;
+}
+
+.title-repo {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    color: #0064EB;
+    padding-top: 24px;
+    
+}
+
+.title-repo > a {
+    text-decoration: none;
+}
+
+.description-repo {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+    padding: 16px 0px 24px;
+}

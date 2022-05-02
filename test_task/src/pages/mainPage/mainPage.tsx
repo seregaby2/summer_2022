@@ -5,8 +5,8 @@ import { MainView } from './components/mainView';
 import './style/mainPage.css';
 
 export function MainPage() {
-  const { data } = useAppSelector((state) => state.reducerRequestApi);
-  return data.id ? (
+  const { dataUser } = useAppSelector((state) => state.reducerRequestApi);
+  return dataUser.id ? (
     <MainView />
   ) : (
     <InitialView

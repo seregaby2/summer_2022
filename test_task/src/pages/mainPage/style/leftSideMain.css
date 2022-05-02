@@ -21,8 +21,11 @@
     font-size: 26px;
     line-height: 130%;
     color: #000000;
-    text-transform: capitalize;
     margin: 28px 0px 12px 0px;
+}
+
+.name-main::first-letter {
+    text-transform: uppercase;
 }
 
 .nick-main {

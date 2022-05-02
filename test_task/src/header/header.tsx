@@ -1,13 +1,13 @@
 import React from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
-import { fetchUsers } from '../store/reducers/fetchUser';
+import { fetchRepos, fetchUser } from '../store/reducers/fetchUser';
 import { userSlice } from '../store/reducers/userSlice';
 import { IconGithub } from './components/iconGithub';
 import { Input } from './components/input';
 import './style/header.css';
 
 export function Header() {
-  const { searchValue } = useAppSelector((state) => state.reducerRequestApi);
+  const { searchValue, dataRepos } = useAppSelector((state) => state.reducerRequestApi);
   const dispatch = useAppDispatch();
   const { getSearchValue } = userSlice.actions;
 
@@ -17,7 +17,9 @@ export function Header() {
 
   const handleClickEnter = (e: React.KeyboardEvent) => {
     if (e.code === 'Enter') {
-      dispatch(fetchUsers(searchValue));
+      dispatch(fetchUser(searchValue));
+      dispatch(fetchRepos(searchValue));
+      console.log(dataRepos.length);
     }
   };
 
