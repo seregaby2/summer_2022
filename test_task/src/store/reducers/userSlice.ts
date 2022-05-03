@@ -4,7 +4,7 @@ import { StateForApi, dataUser, dataRepos } from '../../interface/interface';
 const initialDataUser: dataUser = {
   login: '',
   name: null,
-  id: 0,
+  id: null,
   avatar_url: '',
   html_url: '',
   followers: 0,
@@ -34,7 +34,7 @@ export const userSlice = createSlice({
       state.dataUser = action.payload;
     },
     usersFetchingError(state, action: PayloadAction<string>) {
-      state.isLoading = true;
+      state.isLoading = false;
       state.errorUser = action.payload;
     },
     reposFetching(state) {
@@ -46,7 +46,7 @@ export const userSlice = createSlice({
       state.dataRepos = action.payload;
     },
     reposFetchingError(state, action: PayloadAction<string>) {
-      state.isLoading = true;
+      state.isLoading = false;
       state.errorRepos = action.payload;
     },
     getSearchValue(state, action: PayloadAction<string>) {

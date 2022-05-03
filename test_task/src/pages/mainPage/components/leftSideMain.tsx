@@ -16,13 +16,13 @@ export function LeftSideMain() {
       </a>
       <div className="wrapper-follow-main">
         <div className="followers-main">
-          {dataUser.followers > 1000
-            ? `${(dataUser.followers / 1000).toFixed(1)}к followers`
+          {dataUser.followers >= 1000
+            ? `${(dataUser.followers / 1000).toFixed(1)}k followers`
             : `${dataUser.followers} followers`}
         </div>
         <div className="following-main">
-          {dataUser.following > 1000
-            ? `${(dataUser.following / 1000).toFixed(1)}к followers`
+          {dataUser.following >= 1000
+            ? `${(dataUser.following / 1000).toFixed(1)}k followers`
             : `${dataUser.following} followers`}
         </div>
       </div>

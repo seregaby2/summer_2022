@@ -10,7 +10,7 @@ export interface StateForApi {
 export interface dataUser {
   login: string;
   name: string | null;
-  id: number;
+  id: number | null;
   avatar_url: string;
   html_url: string;
   followers: number;

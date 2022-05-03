@@ -16,10 +16,9 @@ export function Header() {
   };
 
   const handleClickEnter = (e: React.KeyboardEvent) => {
-    if (e.code === 'Enter') {
+    if (e.code === 'Enter' || e.code === 'NumpadEnter') {
       dispatch(fetchUser(searchValue));
       dispatch(fetchRepos(searchValue));
-      console.log(dataRepos.length);
     }
   };
 

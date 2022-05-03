@@ -7,7 +7,7 @@ interface MyProps {
   text: string;
 }
 
-export function InitialView(props: MyProps) {
+export function NotDataView(props: MyProps) {
   return (
     <div className={props.classNameWrapper}>
       <div className={props.classNameIcon}></div>
