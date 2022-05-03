@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
 import { fetchRepos, fetchUser } from '../store/reducers/fetchUser';
 import { userSlice } from '../store/reducers/userSlice';
@@ -7,9 +7,9 @@ import { Input } from './components/input';
 import './style/header.css';
 
 export function Header() {
-  const { searchValue, dataRepos } = useAppSelector((state) => state.reducerRequestApi);
+  const { searchValue, currentPage } = useAppSelector((state) => state.reducerRequestApi);
   const dispatch = useAppDispatch();
-  const { getSearchValue } = userSlice.actions;
+  const { getSearchValue, resetCurrentPage } = userSlice.actions;
 
   const handleChangeInput = (e: React.FormEvent<HTMLInputElement>) => {
     dispatch(getSearchValue(e.currentTarget.value));
@@ -18,9 +18,14 @@ export function Header() {
   const handleClickEnter = (e: React.KeyboardEvent) => {
     if (e.code === 'Enter' || e.code === 'NumpadEnter') {
       dispatch(fetchUser(searchValue));
-      dispatch(fetchRepos(searchValue));
+      dispatch(fetchRepos(searchValue, currentPage));
+      dispatch(resetCurrentPage());
     }
   };
+
+  useEffect(() => {
+    dispatch(fetchRepos(searchValue, currentPage));
+  }, [currentPage]);
 
   return (
     <div className="header-wrapper">

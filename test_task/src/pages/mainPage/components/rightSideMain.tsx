@@ -1,12 +1,23 @@
 import React from 'react';
-import { useAppSelector } from '../../../hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
 import { RepoDescription } from './repoDescription';
-
-import '../style/rightSideMain.css';
 import { NotDataView } from './notDataView';
+import ReactPaginate from 'react-paginate';
+import { userSlice } from '../../../store/reducers/userSlice';
+import '../style/rightSideMain.css';
+import '../style/paginate.css';
 
 export function RightSideMain() {
-  const { dataUser, dataRepos } = useAppSelector((state) => state.reducerRequestApi);
+  const { dataUser, dataRepos, currentPage } = useAppSelector((state) => state.reducerRequestApi);
+  const dispatch = useAppDispatch();
+  const { getCurrentPage } = userSlice.actions;
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handlePageClick = (event: any) => {
+    dispatch(getCurrentPage(event.selected + 1));
+    console.log(event.selected, currentPage);
+  };
+
   return (
     <div className="right-side-main">
       <div>
@@ -33,6 +44,34 @@ export function RightSideMain() {
           classNameText={'text-start-search'}
           text={'Repository list is empty'}
         />
+      )}
+      {dataUser.public_repos !== 0 && (
+        <div id="container-paginate">
+          <span className="description-paginate">
+            {`
+          ${1 + 4 * (currentPage - 1)}-${
+              4 + 4 * (currentPage - 1) > dataUser.public_repos
+                ? dataUser.public_repos
+                : 4 + 4 * (currentPage - 1)
+            } of 
+          ${dataUser.public_repos} items`}
+          </span>
+          <ReactPaginate
+            breakLabel="..."
+            nextLabel=">"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={3}
+            pageCount={Math.ceil(dataUser.public_repos / 4)}
+            marginPagesDisplayed={1}
+            previousLabel="<"
+            breakClassName={'page-item'}
+            containerClassName={'pagination'}
+            pageClassName={'page-item'}
+            previousClassName={'page-item'}
+            nextClassName={'page-item'}
+            activeClassName={'active'}
+          />
+        </div>
       )}
     </div>
   );

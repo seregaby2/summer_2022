@@ -5,6 +5,7 @@ export interface StateForApi {
   isLoading: boolean;
   errorUser: string;
   errorRepos: string;
+  currentPage: number;
 }
 
 export interface dataUser {

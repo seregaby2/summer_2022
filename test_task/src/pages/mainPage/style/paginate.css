@@ -1,0 +1,64 @@
+@font-face {
+    font-family: 'Inter'; 
+	src: url('../../../assets/fonts/Inter-Regular.ttf');
+}
+
+#container-paginate {
+    display: flex;
+    justify-content: flex-end;
+    width: 877px;
+    height: 25px;
+    margin-top: 24px;
+}
+
+.pagination {
+    padding: 0px;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 13px 0 0;
+}
+
+.page-item {
+    list-style: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    color: #808080;
+    margin-left: 16px;
+    cursor: pointer;
+}
+
+.page-item:hover {
+    color: #0064EB;
+}
+
+.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2px 6px;
+    width: 21px;
+    height: 25px;
+    background: #0064EB;
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: #ffffff
+}
+
+.active:hover {
+    color: #ffffff
+}
+
+.description-paginate {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+}

@@ -19,6 +19,7 @@ const initialState: StateForApi = {
   isLoading: false,
   errorUser: '',
   errorRepos: '',
+  currentPage: 1,
 };
 
 export const userSlice = createSlice({
@@ -51,6 +52,12 @@ export const userSlice = createSlice({
     },
     getSearchValue(state, action: PayloadAction<string>) {
       state.searchValue = action.payload;
+    },
+    getCurrentPage(state, action: PayloadAction<number>) {
+      state.currentPage = action.payload;
+    },
+    resetCurrentPage(state) {
+      state.currentPage = 1;
     },
   },
 });

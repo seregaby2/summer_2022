@@ -19,21 +19,22 @@ export const fetchUser = (searchValue: string) => async (dispatch: AppDispatch) 
   }
 };
 
-export const fetchRepos = (searchValue: string) => async (dispatch: AppDispatch) => {
-  try {
-    dispatch(userSlice.actions.reposFetching());
+export const fetchRepos =
+  (searchValue: string, currentPage: number) => async (dispatch: AppDispatch) => {
+    try {
+      dispatch(userSlice.actions.reposFetching());
 
-    const response = await axios.get<dataRepos[]>(
-      `https://api.github.com/users/${searchValue}/repos?per_page=4&page=1`,
-      {
-        method: 'GET',
-        headers: {
-          'content-type': 'application/json',
-        },
-      }
-    );
-    dispatch(userSlice.actions.reposFetchingSuccess(response.data));
-  } catch (e) {
-    if (e instanceof Error) dispatch(userSlice.actions.reposFetchingError(e.message));
-  }
-};
+      const response = await axios.get<dataRepos[]>(
+        `https://api.github.com/users/${searchValue}/repos?per_page=4&page=${currentPage}`,
+        {
+          method: 'GET',
+          headers: {
+            'content-type': 'application/json',
+          },
+        }
+      );
+      dispatch(userSlice.actions.reposFetchingSuccess(response.data));
+    } catch (e) {
+      if (e instanceof Error) dispatch(userSlice.actions.reposFetchingError(e.message));
+    }
+  };
