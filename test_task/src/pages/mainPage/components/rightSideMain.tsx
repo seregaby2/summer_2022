@@ -15,7 +15,6 @@ export function RightSideMain() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handlePageClick = (event: any) => {
     dispatch(getCurrentPage(event.selected + 1));
-    console.log(event.selected, currentPage);
   };
 
   return (

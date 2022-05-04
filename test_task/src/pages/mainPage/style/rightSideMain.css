@@ -7,6 +7,8 @@
 .right-side-main {
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
+    width: 877px;
 }
 
 .title-repo-main {
@@ -20,8 +22,9 @@
 }
 
 .wrapper-repo-description {
-    width: 877px;
-    height: 112px;
+    min-width: 877px;
+    width: 100%;
+    min-height: 112px;
     background-color: #FFFFFF;
     border-radius: 6px;
     padding-left: 32px;
@@ -52,4 +55,43 @@
     line-height: 19px;
     color: #000000;
     padding: 16px 0px 24px;
+}
+
+@media (max-width: 1300px) {
+    .right-side-main {
+        width: 500px;
+    }
+
+    .wrapper-repo-description {
+        min-width: 500px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .right-side-main {
+        width: 300px;
+    }
+
+    .wrapper-repo-description {
+        min-width: 300px;
+    }
+
+    .title-repo {
+        padding-top: 15px;
+        font-size: 18px;
+    }
+
+    .page-item {
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 700px) {
+    .right-side-main {
+        margin-top: 30px;
+    }
+
+    .title-repo-main {
+        font-size: 28px;
+    }
 }

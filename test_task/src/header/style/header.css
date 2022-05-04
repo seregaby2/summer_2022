@@ -62,3 +62,32 @@
     line-height: 17px;
     letter-spacing: 0.01em;
 }
+
+@media (max-width: 700px) {
+    .input-search {
+        max-width: 250px;
+    }
+
+    .wrapper-search {
+        max-width: 300px;
+    }
+
+    .header-content {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 420px) {
+    .input-search {
+        max-width: 150px;
+        font-size: 13px;
+    }
+
+    .wrapper-search {
+        max-width: 200px;
+    }
+
+    .header-content {
+        max-width: 300px;
+    }
+}
